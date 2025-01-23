@@ -13,7 +13,7 @@ const person = {
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -55,8 +55,8 @@ const home = {
   headline: <>Software Developer</>,
   subline: (
     <>
-      I'm Selene, a mobile developer at <InlineCode>Falabella</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Oskar, a developer specializing in mobile, web, and AI solutions, as a founder of <InlineCode>Plugmusix</InlineCode>, I merge technology and creativity to build impactful products.
+      <br /> I'm available for freelance projects—let's create something amazing!
     </>
   ),
 };
@@ -74,16 +74,16 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://calendly.com/oskarconislla/30min",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Oskar is a Lima-based developer with a passion for creating innovative solutions that bridge
+        technology, data, and creativity. His work spans mobile and web development, embedded systems,
+        and AI-driven projects, blending technical expertise with impactful results.
       </>
     ),
   },
@@ -92,45 +92,90 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Falabella Insurance Brokers - Falabella Financial",
+        timeframe: "2023 - Present",
+        role: "Mobile Developer (Android & iOS Developer)",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Configured push notifications and universal links to direct users to specific insurance offerings,
+            such as auto and life insurance, resulting in a 30% increase in sales.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Implemented navigation links to the insurance section across multiple areas of Banco Falabella’s apps for Android and iOS,
+            covering Peru, Chile, and Colombia, improving user engagement with insurance services.
           </>,
+          <>
+            Added the insurance section to Banco Falabella's iOS apps in Chile, Colombia, and Peru,
+            enabling users to explore and purchase insurance seamlessly.
+          </>,
+          <>
+            Lead deployments and production launch in application stores (App Store, Google Play Store and Huawei App Gallery.).
+          </>
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
+            src: "/images/projects/project-01/video-softtoken-falabella.mp4",
+            alt: "Softtoken Seguros Falabella",
+            width: 9,
+            height: 16,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Falabella Technology Peru – Falabella Financial",
+        timeframe: "2022 - 2023",
+        role: "Android Developer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Added the insurance section to Banco Falabella's Android apps in Peru and Colombia,
+            enabling users to explore and purchase insurance seamlessly.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Integrated analytics tracking via Google Analytics and Firebase,enabling detailed monitoring
+            of insurance sales performance and data-driven decision-making.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/projects/project-01/video-seguros-falabella.mp4",
+            alt: "Seguros Falabella",
+            width: 9,
+            height: 16,
+          }
+        ],
       },
+      {
+        company: "Plugmusix",
+        timeframe: "2017 - 2022",
+        role: "CTO & Software Developer",
+        achievements: [
+          <>
+            Co-founded Plugmusix, the first Peruvian social network focused on music and concerts,
+            designed to enhance the experience of music fans and foster connections between artists and audiences.
+          </>,
+          <>
+          Successfully onboarded over 400 artists and more than 10,000 fans during the app's launch phase.
+          </>,
+      
+          <>
+            Launched the Plugmusix mobile app, enabling users to discover new music, connect with artists, 
+            buy tickets and virtual products, and share exclusive content.
+          </>,
+          <>
+            Increased the number of registered users, artists, and concerts on Plugmusix, as well as the volume
+            of products sold through the platform.
+          </>
+          ],
+        images: [
+          {
+            src: "/images/projects/project-01/plugmusix-portada-1.jpg",
+            alt: "Plugmusix Project",
+            width: 16,
+            height: 9,
+          }
+        ],
+      }
     ],
   },
   studies: {
@@ -138,13 +183,13 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Massachusetts Institute of Technology",
+        description: <>Global Startup Labs, Technology and Entrepreneurship Program</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
+        name: "National University of Engineering",
+        description: <>Bachelor's Degree in Mechatronic Engineering.</>,
+      }      
     ],
   },
   technical: {
@@ -152,18 +197,25 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        title: "Kotlin",
+        description: <>Experienced in building high-performance Android apps using Kotlin, Jetpack Compose, and Dagger Hilt, with expertise in CI/CD pipelines and automated testing.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
+            src: "/images/projects/project-01/app-plugmusix-google-play.jpg",
+            alt: "Plugmusix App",
             width: 16,
             height: 9,
-          },
+          }
+        ],
+      },
+      {
+        title: "Swift",
+        description: <>Proficient in developing native iOS applications using Swift, SwiftUI, and Objective-C, with experience in Viper architecture and App Store deployments.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/projects/project-01/app-ios-plugmusix-features.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -171,12 +223,38 @@ const about = {
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        title: "JavaScript",
+        description: <>Specialized in developing full-stack applications with Node.js, Express, and modern front-end frameworks like React and Vue.js.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
+            src: "/images/projects/project-01/festify-portada-2.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Python",
+        description: <>Experienced in building data-driven solutions using Python, including machine learning models for recommendations and backend services with Flask and Django.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/recommendation-plugmusix.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "C++",
+        description: <>Proficient in using C++ for performance-critical applications and implementing algorithms for embedded systems and computational tasks. One of these projects is the Autonomous sumo robot for competitions.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/sumo-foto.png",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -206,7 +284,7 @@ const work = {
 const gallery = {
   label: "Gallery",
   title: "My photo gallery",
-  description: `A photo collection by ${person.name}`,
+  description: `A photography collection by ${person.name}`,
   // Images from https://pexels.com
   images: [
     {

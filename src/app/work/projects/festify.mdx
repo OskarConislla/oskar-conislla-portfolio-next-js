@@ -1,0 +1,42 @@
+---
+title: "Festify: Create Your Personalized Festival Lineups Based on Your Spotify Music Taste"
+publishedAt: "2024-10-10"
+summary: "Festify is a web application that allows users to create and share custom festival lineups by selecting their favorite artists from Spotify. Users can personalize lineups with custom backgrounds and text, then download and share them on social media."
+images:
+  - "/images/projects/project-01/festify-portada-1.jpg"
+  - "/images/projects/project-01/festify-portada-2.jpg"
+team:
+  - name: "Anderson Conislla"
+    role: "UX/UI Designer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: ""
+link: "https://www.festifyapp.com/"
+---
+
+## Overview
+
+For Festify, I focused on creating a fun and engaging way for users to personalize festival lineups based on their Spotify music tastes. The platform allows users to select their favorite artists and automatically generates a festival lineup, which they can then customize with personalized text and backgrounds. Once completed, users can download their unique festival lineup as a JPG and easily share it on social media.
+
+This project integrates Spotify’s API to fetch user music data, alongside custom front-end and back-end solutions using React, Node.js, and AWS. The goal was to combine a smooth, user-friendly experience with a fun way to share music tastes while driving user interaction through personalized content.
+
+## Key Features
+
+- **Spotify Music Integration & Artist Popularity Sorting**: The platform pulls data from Spotify to automatically generate festival lineups based on users' favorite artists, which are sorted by their popularity. This ensures that the most popular artists appear first, creating a dynamic and personalized festival lineup.
+- **Search and Select Artists**: Users can manually search for artists by typing their names into a search bar, and then select from a dropdown list of matches. This feature allows users to add any artist they want to their lineup, even if they are not among their most popular ones.
+- **Customizable Lineups**: Once the lineup is generated, users can personalize it by adding custom text, backgrounds, and other visual elements, giving them full creative control over the final design.
+- **Social Media Sharing**: After customization, users can download their lineup as a high-quality JPG image, making it easy to share on platforms like Instagram, Twitter, and Facebook.
+- **Responsive Design**: Ensured a fully responsive platform, providing a smooth experience for users on both mobile and desktop devices.
+
+## Technologies Used
+
+- **JavaScript & CSS**: Core technologies for building the front-end of the platform, ensuring dynamic functionality and a responsive user interface.
+- **Node.js**:  with several key libraries such as Axios for API requests, particularly to Spotify, Cookie-Parser for session management, CORS for cross-origin requests, and dotenv for securely handling environment variables. To manage dynamic content and templates, I used EJS and Express-Handlebars. jsonwebtoken ensured secure user authentication, while Querystring and Request libraries facilitated smooth handling of user inputs and HTTP requests.
+- **Spotify API**: Integrated to fetch users’ favorite artists and sort them by popularity, offering a personalized experience for festival lineup creation.
+
+## Challenges and Learnings
+
+One of the key challenges was ensuring smooth integration with the Spotify API, particularly in fetching and sorting artist data efficiently. The feature that allows users to manually search and add artists needed to be quick and intuitive, which required optimizing the backend for fast query handling. Additionally, building a responsive and dynamic UI that could handle a large number of artists and data points was crucial to the user experience.
+
+## Outcome
+
+Festify successfully enables users to create, customize, and share their personalized festival lineups, all based on their Spotify music preferences. By sorting the lineups by artist popularity and allowing manual artist additions through a search feature, the platform provides a highly engaging experience for music fans. The use of AWS and Cloudflare ensures that the platform is scalable and secure, while the React and Node.js stack delivers a seamless and fast user experience. The project showcases how to combine third-party integrations, personalized content, and social sharing to create an interactive and fun platform.
