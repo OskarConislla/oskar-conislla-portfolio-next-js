@@ -2,8 +2,6 @@
 
 View the [website here](https://oskarconislla.vercel.app/).
 
-![Magic Portfolio](public/images/cover.png)
-
 
 ## **Content**
 - Render sections conditionally based on the content file
