@@ -1,0 +1,39 @@
+---
+title: "iO: A Production GenAI Customer-Care Agent for a Tier-1 Bank"
+publishedAt: "2025-06-01"
+summary: "A production-grade generative AI agent built at Banco de Crédito del Perú (BCP) that cut average handling time by 70%. A hierarchical multi-agent system with a supervisor routing to specialized sub-agents for Knowledge/RAG, Transactions, and Cashback, deployed across cloud infrastructure, security, and observability."
+images:
+  - "/images/projects/project-01/video-agente-io.mp4"
+tag:
+  - "ai"
+---
+
+## Overview
+
+At BCP, Peru's largest bank, I helped take a generative AI customer-care agent (iO) from prototype to production inside a regulated banking environment. The goal was concrete: resolve customer requests faster and more accurately, while meeting the security, observability, and reliability bar that a financial institution demands.
+
+The agent **cut average handling time by 70%** and contributed to customer-experience and NPS gains, while operating within strict security boundaries.
+
+## Architecture
+
+The system is a **hierarchical multi-agent architecture**: a supervisor agent classifies intent and routes each request to specialized sub-agents — **Knowledge/RAG**, **Transactions**, and **Cashback** — using an *agent-as-a-tool* delegation pattern. A hybrid fast-path router resolves common cases deterministically before invoking an LLM, reducing both latency and cost.
+
+- **Multi-agent orchestration** with a supervisor and specialized sub-agents (built with the Strands Agents SDK on Amazon Bedrock AgentCore).
+- **RAG pipelines** over enterprise knowledge bases, with explicit query expansion and grounding to keep answers accurate and on-policy.
+- **AgentCore Gateway as a managed MCP server**, securely exposing internal enterprise tools to the agents across system and security boundaries.
+
+## LLM-native engineering
+
+Production agents live or die on observability and cost control:
+
+- **OpenTelemetry-based tracing** and LLM-native metrics across distributed agent systems — latency, token usage, cost-per-request, and failure modes.
+- **Prompt caching and token optimization** to reduce unit cost per interaction.
+- **Evaluation-driven debugging** of retrieval-quality regressions, plus automated tests to reduce regressions and raise release confidence.
+
+## Outcome
+
+- **70% reduction in average handling time** through the AI-powered agent.
+- Contribution to **NPS / customer-experience** improvements.
+- Cloud-native delivery on AWS (Terraform, CI/CD, GitHub Actions) with production releases coordinated across engineering, product, data, business, and innovation teams.
+
+> *Details are kept high-level to respect confidentiality; metrics are aggregated and no internal data is shown.*

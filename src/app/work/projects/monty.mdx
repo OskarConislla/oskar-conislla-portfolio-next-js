@@ -1,0 +1,41 @@
+---
+title: "Monty: A WhatsApp-Native AI Personal-Finance Assistant"
+publishedAt: "2025-04-01"
+summary: "A WhatsApp-native AI assistant that turns natural-language Peruvian Spanish ('gasté 50 en taxi', 'me cayó el sueldo 4500') into categorized transactions and financial reports. No app, no forms — just WhatsApp. Built in Python/FastAPI with cost-aware model routing on Claude, a pgvector semantic cache, and production-grade security."
+images: []
+tag:
+  - "ai"
+link: "https://montyfinanzas.com"
+---
+
+## Overview
+
+Monty is a WhatsApp-native AI personal-finance assistant, in production with real users. People send messages in natural Peruvian Spanish — *"gasté 50 en taxi"*, *"me cayó el sueldo 4500"* — and Monty parses, categorizes, and records the transaction, then generates spending/income reports. No app to install, no forms to fill out: it lives entirely inside WhatsApp, for people who don't want yet another finance app.
+
+I built and shipped it end to end as a founder-engineer: agent design, backend, data model, infrastructure, and security.
+
+## Architecture
+
+Rather than reaching for a heavyweight agent framework, I built a **custom, layered router with deterministic short-circuits** before any LLM call: regex/keywords → conversation state → LLM classifier → parser fallback. This keeps the common path fast and cheap.
+
+- **Cost-aware model routing on Claude**: Claude Haiku for fast transaction parsing and intent classification (~0.25s, low cost); Claude Sonnet for weekly reports and richer financial advice — cutting inference spend by roughly 50%.
+- **Structured tool use**: the LLM returns a fixed JSON schema and the application executes it (implicit function-calling), keeping behavior predictable and testable.
+- **Semantic FAQ cache (feature-flagged)**: Voyage AI embeddings (`voyage-3-lite`, 512-d) + **pgvector** cosine-similarity search on Supabase to answer generic product questions without an LLM call, with graceful fallback when embeddings are unavailable.
+
+## Infrastructure & integration
+
+- **API**: FastAPI on Railway (Docker).
+- **Dashboard**: Next.js on Vercel.
+- **Data**: Supabase (PostgreSQL + pgvector + row-level security).
+- **Cache / queues**: Upstash Redis for rate limiting and message idempotency.
+- **WhatsApp**: Meta Cloud API directly (no Twilio, no Baileys) — webhook verified with HMAC-SHA256, responding 200 in under 2s and processing in the background.
+
+## LLM-native engineering & security
+
+- **50+ case evaluation and regression suite** for parser/classifier behavior.
+- **Security by design**: AES-256-GCM encryption, HMAC webhook verification, JWT auth, and PII-safe logging.
+
+## Try it
+
+- **WhatsApp**: [wa.me/51986030951](https://wa.me/51986030951)
+- **Dashboard**: [montyfinanzas.com](https://montyfinanzas.com)

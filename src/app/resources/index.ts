@@ -13,6 +13,8 @@ export {
   social,
   newsletter,
   home,
+  homeAI,
+  homeMobile,
   about,
   blog,
   work,

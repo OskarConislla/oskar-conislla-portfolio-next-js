@@ -4,12 +4,20 @@ import { ProjectCard } from "@/components";
 
 interface ProjectsProps {
   range?: [number, number?];
+  tag?: string;
 }
 
-export function Projects({ range }: ProjectsProps) {
+export function Projects({ range, tag }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
-  const sortedProjects = allProjects.sort((a, b) => {
+  const filteredProjects = tag
+    ? allProjects.filter((post) => {
+        const tags = post.metadata.tag;
+        return Array.isArray(tags) ? tags.includes(tag) : tags === tag;
+      })
+    : allProjects;
+
+  const sortedProjects = filteredProjects.sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
   });
 

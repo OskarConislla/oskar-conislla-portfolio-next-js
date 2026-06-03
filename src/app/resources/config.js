@@ -2,6 +2,8 @@ const baseURL = "oskarconislla.vercel.app";
 
 const routes = {
   "/": true,
+  "/ai": true,
+  "/mobile": true,
   "/about": true,
   "/work": true,
   "/blog": false,

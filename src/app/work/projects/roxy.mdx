@@ -1,0 +1,37 @@
+---
+title: "Roxy: A Conversational Concert-Discovery Agent on WhatsApp"
+publishedAt: "2025-03-01"
+summary: "A WhatsApp agent that answers natural-language questions about live music in LATAM — search by artist, city, genre or date, plus personalized recommendations and proactive alerts. Built in Python/FastAPI with a cost-aware layered router that resolves most messages at zero model cost. Powered by Plugmusix's concert catalog."
+images: []
+tag:
+  - "ai"
+---
+
+## Overview
+
+Roxy is a conversational WhatsApp agent for discovering live music across LATAM. Ask *"¿conciertos de Bad Bunny en Lima?"* and get results — no websites to browse, no filters to fight. It handles artist/city/genre/date search, show details, personalized recommendations based on the user's taste, and proactive alerts. It serves music fans in LATAM, consuming the [plugmusix.com](https://www.plugmusix.com/) catalog.
+
+## Architecture
+
+A **custom layered orchestration in Python/FastAPI** — no LangGraph/CrewAI/ADK. The router runs in tiers: deterministic short-circuits → keyword classifier → LLM intent classification → **14 specialized intent handlers**, all coordinated by a conversation state machine.
+
+- **Model flexibility**: Llama 3.3 70B via Groq (free tier) by default, with Claude Haiku 4.5 as a paid, switchable alternative via an `LLM_PROVIDER` env var.
+- **Tool use**: custom function-calling — the LLM returns structured JSON (intent + entities) that routes to API calls; no MCP.
+- **Deliberately no RAG / vector DB**: concerts are structured data and the API already filters by artist/city/genre/date, so the LLM only parses intent → generates parameters → the API responds. Zero embeddings, zero drift, lower latency.
+
+## Cost-aware engineering & observability
+
+This project is a study in keeping an LLM agent cheap:
+
+- **Near-$0 cost-per-request on most messages**: deterministic short-circuits (commands, keywords, state replies, junk-input prefilter, out-of-scope guardrail) resolve a large share of traffic without touching an LLM; the rest runs on Groq's free tier.
+- **Per-message instrumentation**: intent, tokens (in/out), model, estimated USD cost, end-to-end latency, and a `used_llm` flag → a "% resolved at zero cost" KPI.
+- **Orchestration efficiency**: the recommendation flow went from ~45 API calls to ~3 via batching + `asyncio.gather`.
+
+## Infrastructure & integration
+
+- **Infra**: Railway (FastAPI + async worker, Docker), Supabase/PostgreSQL (users, state, PII), Upstash Redis (idempotency, queues, cache, rate limiting).
+- **WhatsApp**: Meta WhatsApp Cloud API directly — webhook with `X-Hub-Signature-256` HMAC validation, dedupe by `message_id`, sub-2s response with processing delegated to a worker.
+
+## Status
+
+An MVP heading to a Phase-1 beta (target: 5 beta users / 50+ queries). The architecture prioritizes cost-efficiency and observability so it can scale without runaway inference spend.

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Avatar,
   Button,
@@ -286,35 +287,51 @@ export default function About() {
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <SmartImage
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
+                {about.technical.skills.map((skill, index) => {
+                  const showCategory =
+                    skill.category &&
+                    skill.category !== about.technical.skills[index - 1]?.category;
+                  return (
+                    <React.Fragment key={`${skill.title}-${index}`}>
+                      {showCategory && (
+                        <Text
+                          variant="heading-strong-xs"
+                          onBackground="brand-weak"
+                          marginTop={index === 0 ? undefined : "16"}
+                        >
+                          {skill.category}
+                        </Text>
+                      )}
+                      <Column fillWidth gap="4">
+                        <Text variant="heading-strong-l">{skill.title}</Text>
+                        <Text variant="body-default-m" onBackground="neutral-weak">
+                          {skill.description}
+                        </Text>
+                        {skill.images && skill.images.length > 0 && (
+                          <Flex fillWidth paddingTop="m" gap="12" wrap>
+                            {skill.images.map((image, index) => (
+                              <Flex
+                                key={index}
+                                border="neutral-medium"
+                                radius="m"
+                                minWidth={image.width}
+                                height={image.height}
+                              >
+                                <SmartImage
+                                  enlarge
+                                  radius="m"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </Flex>
+                            ))}
                           </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
+                        )}
+                      </Column>
+                    </React.Fragment>
+                  );
+                })}
               </Column>
             </>
           )}

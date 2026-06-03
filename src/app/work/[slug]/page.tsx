@@ -104,6 +104,11 @@ export default function Project({ params }: WorkParams) {
           Projects
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+        {post.metadata.link && (
+          <Button href={post.metadata.link} variant="secondary" size="s" suffixIcon="arrowUpRight" target="_blank">
+            View project
+          </Button>
+        )}
       </Column>
       {post.metadata.images.length > 0 && (
         <SmartImage

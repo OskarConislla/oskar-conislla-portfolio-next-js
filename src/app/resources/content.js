@@ -51,12 +51,46 @@ const social = [
 const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Software Developer</>,
+  description: "Software Engineer working across Generative AI and Mobile",
+  headline: <>Generative AI & Mobile Engineer</>,
   subline: (
     <>
-      I'm Oskar, a developer specializing in mobile, web, and AI solutions, as a founder of <InlineCode>Plugmusix</InlineCode>, I merge technology and creativity to build impactful products.
-      <br /> I'm available for freelance projects—let's create something amazing!
+      I'm Oskar, a software engineer who builds <InlineCode>production-grade generative AI</InlineCode>—multi-agent
+      systems, RAG, and LLM observability that ship and scale. Over 5 years turning ambiguous problems into AI
+      products with measurable ROI, like a 70% handling-time reduction at BCP. I also bring 8+ years of native
+      Android & iOS engineering, and I founded Plugmusix.
+      <br /> Available for new opportunities—let's build something impactful.
+    </>
+  ),
+};
+
+// Role-targeted landing pages. `/ai` and `/mobile` reuse the home layout
+// but swap headline, subline and the featured project tag. Send the matching
+// URL on each tailored CV (e.g. /ai for GenAI roles, /mobile for Android/iOS roles).
+const homeAI = {
+  label: "Home",
+  title: `${person.name} – Generative AI Engineer`,
+  description: "Production-grade generative AI and agentic systems",
+  headline: <>Generative AI Engineer</>,
+  subline: (
+    <>
+      I'm Oskar, a developer who ships <InlineCode>production-grade agentic systems</InlineCode>—multi-agent
+      orchestration, RAG, and LLM observability. I cut average handling time by 70% with an AI agent at BCP,
+      and build WhatsApp-native AI products end to end.
+    </>
+  ),
+};
+
+const homeMobile = {
+  label: "Home",
+  title: `${person.name} – Senior Mobile Engineer`,
+  description: "8+ years shipping Android & iOS apps at scale",
+  headline: <>Senior Mobile Engineer</>,
+  subline: (
+    <>
+      I'm Oskar, a developer with 8+ years shipping <InlineCode>Android & iOS at scale</InlineCode>. I built
+      banking apps across Peru, Chile and Colombia in Kotlin & Swift, owning CI/CD, testing and multi-store
+      releases. Music-tech founder and Spotify-API builder.
     </>
   ),
 };
@@ -92,8 +126,55 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
+        company: "Credit Bank of Peru - BCP",
+        timeframe: "2025 - Present",
+        role: "AI Techonology Engineer",
+        achievements: [
+          <>
+            Developed cloud-native AI and platform solutions on AWS using Terraform, CI/CD pipelines, and GitHub workflows,
+            improving scalability, deployment efficiency, and developer productivity.
+          </>,
+          <>
+            Built reliable backend services and reusable Python modules focused on maintainability, performance,
+            and production-readiness.
+          </>,
+          <>
+            Implemented OpenTelemetry-based observability to improve monitoring, debugging, and visibility
+            across distributed systems.
+          </>,
+          <>
+            Contributed to GenAI-powered platforms using Strands and AgentCore,
+            supporting agent-based workflows and distributed AI components in production environments.
+          </>,
+          <>
+            Created automated unit tests to improve code quality, reduce regressions, and increase release confidence.
+          </>,
+          <>
+            Led production deployments and coordinated releases with cross-functional teams across engineering,
+            product, data, business, and innovation.
+          </>,
+          <>
+            Helped reduce average handling time by 70% through an AI-powered agent,
+            improving operational efficiency and response speed.
+          </>,
+          <>
+            Contributed to NPS growth by delivering AI solutions that improved service quality,
+            user experience, and operational responsiveness.
+          </>
+        ],
+        images: [
+          // optional: leave the array empty if you don't want to display images
+          {
+            src: "/images/projects/project-01/video-agente-io.mp4",
+            alt: "AI Agent for Customer Care iO",
+            width: 9,
+            height: 16,
+          },
+        ],
+      },
+      {
         company: "Falabella Insurance Brokers - Falabella Financial",
-        timeframe: "2023 - Present",
+        timeframe: "2023 - 2025",
         role: "Mobile Developer (Android & iOS Developer)",
         achievements: [
           <>
@@ -197,9 +278,48 @@ const about = {
     title: "Technical skills",
     skills: [
       {
+        category: "Generative AI & Cloud",
+        title: "Python & Generative AI",
+        description: <>Build production-grade GenAI agents in Python—multi-agent orchestration, tool use, MCP servers, and prompt/state management—plus reliable backend services with FastAPI.</>,
+        images: [
+          {
+            src: "/images/projects/project-01/video-agente-io.mp4",
+            alt: "AI Agent for Customer Care iO",
+            width: 9,
+            height: 16,
+          },
+        ],
+      },
+      {
+        category: "Generative AI & Cloud",
+        title: "RAG, Vector DBs & Data",
+        description: <>Design RAG pipelines over structured and unstructured data using vector databases (pgvector) and embeddings, with evaluation pipelines and anti-hallucination grounding.</>,
+        images: [
+          {
+            src: "/images/projects/project-01/recommendation-plugmusix.jpg",
+            alt: "Recommendation system",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        category: "Generative AI & Cloud",
+        title: "Cloud, Observability & Full-Stack",
+        description: <>Ship cloud-native systems on AWS (Terraform, CI/CD, Lambda) with OpenTelemetry tracing and LLM-native metrics (latency, tokens, cost-per-request); full-stack with Node.js, Next.js, and React.</>,
+        images: [
+          {
+            src: "/images/projects/project-01/festify-portada-2.jpg",
+            alt: "Festify full-stack project",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        category: "Mobile (Android & iOS)",
         title: "Kotlin",
         description: <>Experienced in building high-performance Android apps using Kotlin, Jetpack Compose, and Dagger Hilt, with expertise in CI/CD pipelines and automated testing.</>,
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/app-plugmusix-google-play.jpg",
@@ -210,9 +330,9 @@ const about = {
         ],
       },
       {
+        category: "Mobile (Android & iOS)",
         title: "Swift",
         description: <>Proficient in developing native iOS applications using Swift, SwiftUI, and Objective-C, with experience in Viper architecture and App Store deployments.</>,
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/app-ios-plugmusix-features.jpg",
@@ -223,35 +343,9 @@ const about = {
         ],
       },
       {
-        title: "JavaScript",
-        description: <>Specialized in developing full-stack applications with Node.js, Express, and modern front-end frameworks like React and Vue.js.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/festify-portada-2.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Python",
-        description: <>Experienced in building data-driven solutions using Python, including machine learning models for recommendations and backend services with Flask and Django.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/recommendation-plugmusix.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
+        category: "Mobile (Android & iOS)",
         title: "C++",
         description: <>Proficient in using C++ for performance-critical applications and implementing algorithms for embedded systems and computational tasks. One of these projects is the Autonomous sumo robot for competitions.</>,
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/project-01/sumo-foto.png",
@@ -360,4 +454,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, homeAI, homeMobile, about, blog, work, gallery };
