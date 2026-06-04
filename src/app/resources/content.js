@@ -89,8 +89,8 @@ const homeMobile = {
   subline: (
     <>
       I'm Oskar, a developer with 8+ years shipping <InlineCode>Android & iOS at scale</InlineCode>. I built
-      banking apps across Peru, Chile and Colombia in Kotlin & Swift, owning CI/CD, testing and multi-store
-      releases. Music-tech founder and Spotify-API builder.
+      reusable Kotlin & Swift modules deployed across 3 countries as internal SDKs, owned analytics
+      instrumentation with Firebase & Google Analytics, and integrated Spotify's API as a music-tech founder.
     </>
   ),
 };
