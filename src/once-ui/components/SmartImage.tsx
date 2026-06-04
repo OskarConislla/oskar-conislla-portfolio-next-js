@@ -130,11 +130,16 @@ const SmartImage: React.FC<SmartImageProps> = ({
             muted
             playsInline
             style={{
-              position: "absolute",
-              inset: 0,
+              // When a fixed aspectRatio is set (project cards / hero, 16:9),
+              // take the video out of flow so it respects the frame and stays
+              // centered/contained instead of ballooning. Otherwise (e.g. the
+              // About section, which sizes its own 9:16 boxes), keep the original
+              // in-flow "cover" behavior so those videos fill their frame.
+              ...(aspectRatio
+                ? { position: "absolute", inset: 0, objectFit: "contain" }
+                : { objectFit }),
               width: "100%",
               height: "100%",
-              objectFit: "contain",
             }}
           />
         )}

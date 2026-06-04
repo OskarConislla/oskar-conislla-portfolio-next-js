@@ -165,11 +165,18 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
+            src: "/images/projects/project-01/io-neobanco.png",
+            alt: "AI Agent for Customer Care iO",
+            width: 16,
+            height: 9,
+          },
+          {
             src: "/images/projects/project-01/video-agente-io.mp4",
             alt: "AI Agent for Customer Care iO",
             width: 9,
             height: 16,
-          },
+          }
+          
         ],
       },
       {
@@ -282,6 +289,12 @@ const about = {
         title: "Python & Generative AI",
         description: <>Build production-grade GenAI agents in Python—multi-agent orchestration, tool use, MCP servers, and prompt/state management—plus reliable backend services with FastAPI.</>,
         images: [
+          {
+            src: "/images/projects/project-01/io-neobanco.png",
+            alt: "AI Agent for Customer Care iO",
+            width: 16,
+            height: 9,
+          },
           {
             src: "/images/projects/project-01/video-agente-io.mp4",
             alt: "AI Agent for Customer Care iO",
