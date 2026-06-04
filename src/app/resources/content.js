@@ -75,8 +75,9 @@ const homeAI = {
   subline: (
     <>
       I'm Oskar, a developer who ships <InlineCode>production-grade agentic systems</InlineCode>—multi-agent
-      orchestration, RAG, and LLM observability. I cut average handling time by 70% with an AI agent at BCP,
-      and build WhatsApp-native AI products end to end.
+      orchestration, RAG, vector search (pgvector), and LLM observability across TypeScript/Next.js frontends
+      and Python backends. I cut average handling time by 70% with an AI agent at BCP, owning architecture,
+      deployment, and operations on AWS end to end.
     </>
   ),
 };
